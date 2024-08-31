@@ -27,14 +27,13 @@ function App() {
     <Route path='/login' element={<Login/>}/>
     <Route path='/nafed' element={<NAFED/>}/>
     <Route path='/farmer' element={<Farmer/>}/>
-<<<<<<< HEAD
+
     <Route path='/Signup' element={<Signup/>}/>
     <Route path='/Realtimeprice' element={<Realtimeprice/>}/>
-=======
+
     <Route path='/realtimeprice' element={<Realtimeprice/>}/>
     <Route path='/sample' element={<Sample/>}/>
 
->>>>>>> 3ad6c19f872054ad08c936f3360cc5f42520a2b1
    </Routes>
     </>
   )
