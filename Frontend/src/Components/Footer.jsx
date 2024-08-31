@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-green-50 border-t border-gray-300 py-6">
+    <footer className="bg-green-50 border-t  border-gray-300 py-6 my-2">
       {/* Social Media Links */}
       <div className="flex justify-center space-x-4">
         <a
