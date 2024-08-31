@@ -10,6 +10,8 @@ import Login from "./Pages/Login"
 import NAFED from "./Pages/NAFED"
 import Farmer from "./Pages/Farmer"
 import Realtimeprice from "./Pages/Realtimeprice"
+import Sample from "./Pages/sampleblock";
+
 function App() {
  
 
@@ -25,6 +27,8 @@ function App() {
     <Route path='/nafed' element={<NAFED/>}/>
     <Route path='/farmer' element={<Farmer/>}/>
     <Route path='/realtimeprice' element={<Realtimeprice/>}/>
+    <Route path='/sample' element={<Sample/>}/>
+
    </Routes>
     </>
   )
