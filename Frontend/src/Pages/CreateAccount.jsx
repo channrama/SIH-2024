@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import Layout from "../Components/Layout";
-import './CreateAccount.css';
+import './csspages/CreateAccount.css';
 
 import Layout from '../Components/Layout';
 const CreateAccount = () => {

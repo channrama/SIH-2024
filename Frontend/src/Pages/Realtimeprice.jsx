@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../Components/Layout';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import './Realtime.css';
+import '../pages/csspages/Realtime.css';
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);

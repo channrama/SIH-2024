@@ -106,11 +106,7 @@ export default function Header() {
                 Login
               </Link>
             </MenuItem>
-            <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
-              <Link to="/signup" className="block w-full text-sm text-gray-800 hover:text-green-700">
-                Signup
-              </Link>
-            </MenuItem>
+  
             <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
               <Link to="/create-account" className="block w-full text-sm text-gray-800 hover:text-green-700">
                 Create Account
