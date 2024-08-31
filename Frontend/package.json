@@ -18,7 +18,11 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@heroicons/react": "^2.1.5",
     "bootstrap": "^5.3.3",
+<<<<<<< HEAD
     "chart.js": "^4.4.4",
+=======
+    "ethers": "^6.13.2",
+>>>>>>> 3ad6c19f872054ad08c936f3360cc5f42520a2b1
     "framer-motion": "^11.3.31",
     "i18next": "^23.14.0",
     "react": "^18.3.1",
