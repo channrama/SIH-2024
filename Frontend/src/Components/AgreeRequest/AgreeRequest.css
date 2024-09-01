@@ -1,0 +1,64 @@
+.agreeRequest {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #f9faf9;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .agreeRequest h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 23px;
+    margin-top: 11px;
+    border-bottom: 2px solid #09af62;
+    font-weight: bold;
+    color: #047b04;
+    padding-bottom: 5px;
+  }
+  
+  .requestTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .requestTable th, .requestTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .requestTable th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .requestTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .requestTable tr:hover {
+    background-color: #ddd;
+  }
+  
+  .requestTable button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .requestTable button:hover {
+    background-color: #45a049;
+  }
+  .requestTable button #reject{
+    background-color: #db3d3d;
+  }
+  .requestTable button #reject:hover{
+    background-color: #d90303;;
+  }

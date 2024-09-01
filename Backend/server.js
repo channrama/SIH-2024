@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 const port = process.env.PORT || 4000;
 const multer = require("multer");
 const path = require("path");
@@ -20,7 +20,7 @@ app.use(cors());
 
 const DATABASE =process.env.DATABASE;
 const BASE_URL = process.env.BASE_URL;
-const jwtSecret = process.env.jwtSecret;
+const jwtSecret = "secret_agri";
 
 //connecting with database
 mongoose
@@ -55,95 +55,91 @@ function authMiddleware(req, res, next) {
   });
 }
 
-// Ensure the upload directory exists
-const uploadDir = "./upload/images";
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Serve images statically
+app.use('/images', express.static(path.join(__dirname, 'upload/images')));
 
-//Image storage Engine
+// Set up Multer for image upload
 const storage = multer.diskStorage({
-  destination: uploadDir,
+  destination: './upload/images',
   filename: (req, file, cb) => {
-    return cb(
-      null,
-      `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`
-    );
+   cb(null, `${Date.now()}-${file.originalname}`);
   },
-});
-
-const upload = multer({ storage: storage });
-
-//Creating Upload Endpoint for images
-app.use("/images", express.static(uploadDir));
-
-app.post("/upload", upload.single("my_photo"), (req, res) => {
-  res.json({
-    success: 1,
-    image_url: `${BASE_URL}/images/${req.file.filename}`,
   });
-});
+  
+  const upload = multer({ storage });
 
-// API for registering users
-app.post("/register", async (req, res) => {
-  const { role, photo, username, email, aadhar, password, address } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+// Buyer Registration 
+app.post('/register/buyer', upload.single('photo'), async (req, res) => {
   try {
-    if (role === "farmer") {
-      let check = await Farmer.findOne({ email: req.body.email });
-      if (check) {
-        return res.status(400).json({
-          success: false,
-          errors: "Exiting user found with same email address or Phone number",
-        });
-      }
-      const { land, productCategory, products } = req.body;
-      const bankDetails = {
-        bankName: req.body.bankName,
-        accnum: req.body.accnum,
-        isfccode: req.body.isfccode,
-        branch: req.body.branch,
-      };
-      const newFarmer = new Farmer({
-        photo,
-        username,
-        email,
-        aadhar,
-        password: hashedPassword,
-        address,
-        land,
-        productCategory,
-        products,
-        bankDetails,
-      });
-      await newFarmer.save();
-      res.status(201).send(`${username} registered successfully as Farmer`);
-    } else if (role === "buyer") {
-      let check = await Buyer.findOne({ email: req.body.email });
-      if (check) {
-        return res.status(400).json({
-          success: false,
-          errors: "Exiting user found with same email address or Phone number",
-        });
-      }
-      const newBuyer = new Buyer({
-        photo,
-        username,
-        email,
-        aadhar,
-        password: hashedPassword,
-        address,
-      });
-      await newBuyer.save();
-      res.status(201).send(`${username} registered successfully as Buyer`);
-    } else {
-      res.status(400).send("Invalid role");
+    const { username, email, aadhar, password, address} = req.body;
+    if (!username) {
+      return res.status(400).json({ error: 'Username is required' });
     }
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const newBuyer = new Buyer({
+      photo: req.file ? req.file.filename : '',
+      username,
+      email,
+      aadhar,
+      password: hashedPassword,
+      address,
+    });
+
+    await newBuyer.save();
+
+    // Log the newly created buyer
+    console.log('New Buyer:', newBuyer);
+
+    const token = jwt.sign({ id: newBuyer._id, role: 'buyer' }, jwtSecret, { expiresIn: "1h" });
+
+    res.json({ message: `${username} registered successfully`, token });
   } catch (error) {
-    res.status(400).send(error.message);
+    console.error('Error in Buyer Registration:', error);
+    res.status(400).json({ error: error.message });
   }
 });
 
+// Farmer Registration 
+app.post('/register/farmer', upload.single('photo'), async (req, res) => {
+  try {
+    const { username, email, aadhar, password, address, land, productCategory, products, bankName,accnum,isfccode, branch, } = req.body;
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const bankDetails = {
+      bankName,
+      accnum,
+      isfccode,
+      branch,
+    };
+    const newFarmer = new Farmer({
+      photo: req.file ? req.file.filename : '',
+      username,
+      email,
+      aadhar,
+      password: hashedPassword,
+      address,
+      land,
+      productCategory,
+      products,
+      bankDetails,
+    });
+
+    await newFarmer.save();
+
+    // Log the newly created farmer
+    console.log('New Farmer:', newFarmer);
+
+    const token = jwt.sign({ id: newFarmer._id, role: 'farmer' }, jwtSecret, { expiresIn: "1h" });
+
+    res.json({ message: `${username} registered successfully`, token });
+  } catch (error) {
+    console.error('Error in Farmer Registration:', error);
+    res.status(400).json({ error: error.message });
+  }
+});
+  
 //Creating API for user login
 app.post("/login", async (req, res) => {
   const { email, password, role } = req.body;
@@ -256,8 +252,8 @@ app.post(
   "/farmers/:id/agreements/request",
   authMiddleware,
   async (req, res) => {
-    const { buyerId, productType, product, minPrice, agreementType } = req.body;
-
+    const { productType, product, minPrice, agreementType } = req.body;
+    const buyerId = req.user.id;
     const farmer = await Farmer.findById(req.params.id);
     if (!farmer) return res.status(404).send("Farmer not found");
 
@@ -297,8 +293,8 @@ app.post(
 
 //API for applying for agreement with buyer by farmer
 app.post("/buyers/:id/posts/apply", authMiddleware, async (req, res) => {
-  const { farmerId, productType, product, minPrice, agreementType } = req.body;
-
+  const {  productType, product, minPrice, agreementType } = req.body;
+  const farmerId =req.user.id;
   const buyer = await Buyer.findById(req.params.id);
   if (!buyer) return res.status(404).send("Buyer not found");
 
@@ -542,6 +538,6 @@ app.listen(port, (error) => {
   if (!error) console.log(`Server running on port ${port}`);
   else console.log("Error : " + error);
 });
-=======
-//main server
->>>>>>> a5a7169f02ebed25572dadebf8d6ad83c61e538b
+// =======
+// //main server
+// >>>>>>> a5a7169f02ebed25572dadebf8d6ad83c61e538b

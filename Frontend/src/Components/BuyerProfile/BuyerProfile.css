@@ -1,0 +1,82 @@
+.buyer-profile-main-class
+{
+    display: flex;
+    /* align-items: center; */
+    /* justify-content: center; */
+    background-color: #f0fdf4;
+}
+.buyer-profile {
+    width: 30%;
+    max-width: 800px;
+    margin: 20px;
+    padding: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #dcfce7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+  }
+  
+  .buyer-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 20px;
+    display: block;
+  }
+  
+  .buyer-profile .username {
+    font-size: 28px;
+    color: rgb(6 114 46);
+    margin-bottom: 5px;
+    font-weight: bold;
+    border-bottom: 2px solid #09af62;
+  }
+  .buyer-details-inner{
+    margin-top: 10px;
+    background-color: #f9faf9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .buyer-profile p , .buyer-profile .buyer-details-inner p {
+    font-size: 17px;
+    color: rgb(20 141 63);
+    padding: 2px 0  ;
+}
+  
+.buyer-profile .buyer-details-inner p span:first-child {
+    font-weight: bold;
+    color: rgb(11 98 42);
+}
+
+.buyer-profile .buyer-details-inner p span:last-child {
+    padding-left: 10px;
+}
+  
+#buyer-create-post-heading {
+    font-size: 23px;
+    margin-top: 11px;
+    border-bottom: 2px solid #09af62;
+    margin-bottom: -30px;
+    font-weight: bold;
+    color: #047b04;
+  }
+  
+  .buyer-create-post {
+    background-color: #f0fdf4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .other-buyer-details{
+    width: 70%;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #dcfce7;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+  }
+  

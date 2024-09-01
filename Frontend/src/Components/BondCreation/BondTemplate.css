@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid black;
+    position: relative;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .gov-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .logo {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  .party-info {
+    margin-bottom: 20px;
+  }
+  
+  .party {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  ul {
+    margin-left: 20px;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .verified-stamp {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 150px;
+    height: auto;
+  }
+  
+  /* Ensure that the PDF fits within A4 size with borders */
+  #bond {
+    border: 1px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  

@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const buyerSchema = new mongoose.Schema({
   role:{type:String,default:"buyer"},
   photo: String,
-  username: { type: String, required: true, unique: true },
+  username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  aadhar: { type: String, required: true, unique: true },
+  aadhar: { type: String, required: true,unique:true },
   password: { type: String, required: true },
   address: String,
   posts: [{
     productCategory: { type: String, enum: ['Crops', 'Dairy', 'Poultry'] },
-    product: [String],
+    product: String,
     minPrice: String,
     datePosted:{
         type:Date,

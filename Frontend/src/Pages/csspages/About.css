@@ -1,0 +1,8 @@
+.my-5{
+    background-color: rgb(240,253,244);
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    background-color: aquamarine;
+  }

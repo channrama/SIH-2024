@@ -6,7 +6,7 @@ const bankDetailsSchema = new mongoose.Schema({
       type:String,
     },
     accnum:{
-      type:Number,
+      type:String,
     },
     isfccode:{
       type:String,
@@ -18,7 +18,7 @@ const bankDetailsSchema = new mongoose.Schema({
 const farmerSchema = new mongoose.Schema({
   role:{type:String,default:"farmer"},
   photo: String,
-  username: { type: String, required: true, unique: true },
+  username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   aadhar: { type: String, required: true, unique: true },
   password: { type: String, required: true },

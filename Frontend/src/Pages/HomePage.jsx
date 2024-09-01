@@ -14,6 +14,7 @@ const HomePage = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const token = localStorage.getItem('token');
 
   return (
     <Layout>
@@ -21,23 +22,23 @@ const HomePage = () => {
         {/* Slider Section */}
         <div className="w-full md:w-1/2 mb-6 md:mb-0 relative">
           <Slider {...settings}>
-            <div className="relative h-64 md:h-80">
-              <img src="https://via.placeholder.com/1200x500?text=Slide+1" alt="Slide 1" className="w-full h-full object-cover rounded-lg shadow-lg" />
-              <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold bg-black bg-opacity-40 p-4 rounded-lg">
+          <div className="relative h-64 md:h-80">
+              <img src="/images/agri5.jpeg" alt="Slide 1" className="w-full h-full object-cover rounded-lg shadow-lg" />
+              {/* <div className="absolute inset-0 flex items-center justify-center text-green text-3xl font-bold p-4 rounded-lg">
                 <span>Welcome to AgriSite</span>
-              </div>
+              </div> */}
             </div>
             <div className="relative h-64 md:h-80">
-              <img src="https://via.placeholder.com/1200x500?text=Slide+2" alt="Slide 2" className="w-full h-full object-cover rounded-lg shadow-lg" />
-              <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold bg-black bg-opacity-40 p-4 rounded-lg">
-                <span>Discover Fresh Produce</span>
-              </div>
+              <img src="/images/agri2.jpg" alt="Slide 2" className="w-full h-full object-cover rounded-lg shadow-lg" />
+              {/* <div className="absolute inset-0 flex items-center justify-center text-green text-3xl font-bold p-4 rounded-lg">
+                <span>Welcome to AgriSite</span>
+              </div> */}
             </div>
             <div className="relative h-64 md:h-80">
-              <img src="https://via.placeholder.com/1200x500?text=Slide+3" alt="Slide 3" className="w-full h-full object-cover rounded-lg shadow-lg" />
-              <div className="absolute inset-0 flex items-center justify-center text-white text-3xl font-bold bg-black bg-opacity-40 p-4 rounded-lg">
-                <span>Connect with Farmers</span>
-              </div>
+              <img src="/images/agri1.jpg" alt="Slide 3" className="w-full h-full object-cover rounded-lg shadow-lg" />
+              {/* <div className="absolute inset-0 flex items-center justify-center text-green text-3xl font-bold p-4 rounded-lg">
+                <span>Welcome to AgriSite</span>
+              </div> */}
             </div>
           </Slider>
         </div>
@@ -49,9 +50,12 @@ const HomePage = () => {
             <p className="text-lg text-gray-800 mb-6 leading-relaxed">
               AgriSite is your go-to platform for everything related to agriculture. Discover fresh produce, connect with farmers, and stay updated with real-time prices. Explore our site to learn more about the agricultural world and find the best deals.
             </p>
-            <a href="/about" className="bg-green-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
+            <a href="/about" className="bg-green-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out mr-4">
               Learn More
             </a>
+            {!token &&<a href="/create-account" className="bg-green-600 text-white py-3 px-6 rounded-lg shadow-md hover:bg-green-700 transition duration-300 ease-in-out">
+              Get Started
+            </a>}
           </div>
         </div>
       </div>
@@ -69,7 +73,7 @@ const HomePage = () => {
             <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <h3 className="text-xl font-semibold mb-3 text-green-700">Buyers</h3>
               <p className="text-gray-600 mb-4">Find and purchase the best agricultural products at competitive prices.</p>
-              <a href="/buyers" className="text-green-600 hover:underline">Learn More</a>
+              <a href="/contractors" className="text-green-600 hover:underline">Learn More</a>
             </div>
             <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out">
               <h3 className="text-xl font-semibold mb-3 text-green-700">Real-Time Price</h3>

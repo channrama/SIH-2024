@@ -1,0 +1,59 @@
+.displayNotifications {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #f9faf9;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .displayNotifications h2 {
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 23px;
+    margin-top: 11px;
+    border-bottom: 2px solid #09af62;
+    font-weight: bold;
+    color: #047b04;
+    padding-bottom: 5px;
+  }
+  
+  .notificationsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .notificationsTable th, .notificationsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .notificationsTable th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .notificationsTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .notificationsTable tr:hover {
+    background-color: #ddd;
+  }
+  
+  .notificationsTable button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .notificationsTable button:hover {
+    background-color: #45a049;
+  }
+  

@@ -1,0 +1,190 @@
+.farmerList {
+    width: 100%;
+    padding: 20px;
+    background-color:rgb(255, 255, 255);
+  }
+  
+  .farmerList  #filter {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: #3eb157;
+    font-weight: bold;
+    width: 75px;
+    border-radius: 10px;
+    height: 35px;
+    float: right;
+    margin-right: 50px;
+  }
+  
+  .farmerTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .farmerTable th, .farmerTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  .farmerTable th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .farmerTable tr:nth-child(odd){
+    background-color: rgb(240 253 244);
+  }
+  
+  .farmerTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .farmerTable tr:hover {
+    background-color: #e8e6e6;
+  }
+  
+  .farmerTable button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .farmerTable button:hover {
+    background-color: #45a049;
+  }
+  
+  .farmerPhoto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: auto;
+  
+  }
+
+  /* Modal Container */
+  .requestModal {
+    background-color: #f9f9f9;
+    padding: 20px;  /* Reduced padding */
+    max-width: 500px;  /* Reduced max width */
+    width: 35%;  /* Adjusted width */
+    max-height: 70%;  /* Set maximum height */
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+    transition: transform 0.3s ease;
+    transform: translateY(-10px);
+    overflow-y: auto; /* Add scroll if content overflows */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Modal Overlay */
+  .requestModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Header */
+  .requestModal h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  /* Form Styling */
+  .requestModal form div {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .requestModal form label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .requestModal form input,
+  .requestModal form select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin: auto;
+    display: block;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .requestModal form input:focus,
+  .requestModal form select:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    outline: none;
+  }
+  
+  /* Buttons */
+  .requestModal form button {
+    padding: 12px 25px;
+    margin: 20px 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .requestModal form button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+  }
+  
+  /* Close Button */
+  .requestModal .closeButton {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #888;
+    transition: color 0.3s ease;
+  }
+  
+  .requestModal .closeButton:hover {
+    color: #555;
+  }
+  
