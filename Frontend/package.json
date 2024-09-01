@@ -19,6 +19,7 @@
     "@heroicons/react": "^2.1.5",
     "axios": "^1.7.5",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.4",
     "framer-motion": "^11.3.31",
     "html2canvas": "^1.4.1",
     "i18next": "^23.14.0",

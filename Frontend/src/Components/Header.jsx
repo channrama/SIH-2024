@@ -83,18 +83,6 @@ export default function Header() {
               Real-Time Price
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/nafed"
-              className={({ isActive }) =>
-                `block py-2 px-4 ${
-                  isActive ? "text-green-700" : "text-gray-700"
-                } hover:text-green-700`
-              }
-            >
-              NAFED
-            </NavLink>
-            </li>
         </ul>
 
         {/* Profile Icon */}
@@ -107,49 +95,26 @@ export default function Header() {
             />
           </MenuButton>
           <MenuList className="mt-2 w-44 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-            {token && role ? (
-              <>
-                <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
-                  <Link
-                    to="/profile"
-                    className="block w-full text-sm text-gray-800 hover:text-green-700"
-                  >
-                    Profile
-                  </Link>
-                </MenuItem>
-                <MenuItem
-                  className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out"
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    localStorage.removeItem("role");
-                    window.location.href = "/";
-                  }}
-                >
-                  <span className="block w-full text-sm text-gray-800 hover:text-green-700">
-                    Logout
-                  </span>
-                </MenuItem>
-              </>
-            ) : (
-              <>
-                <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
-                  <Link
-                    to="/login"
-                    className="block w-full text-sm text-gray-800 hover:text-green-700"
-                  >
-                    Login
-                  </Link>
-                </MenuItem>
-                <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
-                  <Link
-                    to="/create-account"
-                    className="block w-full text-sm text-gray-800 hover:text-green-700"
-                  >
-                    Create Account
-                  </Link>
-                </MenuItem>
-              </>
-            )}
+            <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
+              <Link to="/login" className="block w-full text-sm text-gray-800 hover:text-green-700">
+                Login
+              </Link>
+            </MenuItem>
+            <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
+              <Link to="/signup" className="block w-full text-sm text-gray-800 hover:text-green-700">
+                Signup
+              </Link>
+            </MenuItem>
+            <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
+              <Link to="/create-account" className="block w-full text-sm text-gray-800 hover:text-green-700">
+                Create Account
+              </Link>
+            </MenuItem>
+            <MenuItem className="px-4 py-2 hover:bg-green-100 rounded-md transition duration-150 ease-in-out">
+              <Link to="/logout" className="block w-full text-sm text-gray-800 hover:text-green-700">
+                Logout
+              </Link>
+            </MenuItem>
           </MenuList>
         </Menu>
       </nav>
