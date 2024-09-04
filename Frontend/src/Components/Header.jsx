@@ -83,18 +83,6 @@ export default function Header() {
               Real-Time Price
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/nafed"
-              className={({ isActive }) =>
-                `block py-2 px-4 ${
-                  isActive ? "text-green-700" : "text-gray-700"
-                } hover:text-green-700`
-              }
-            >
-              NAFED
-            </NavLink>
-            </li>
         </ul>
 
         {/* Profile Icon */}
