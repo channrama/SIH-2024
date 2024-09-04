@@ -2,7 +2,8 @@ import React from 'react';
 import Layout from '../Components/Layout';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import '../pages/csspages/Realtime.css';
+import './csspages/Realtime.css';
+
 
 // Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -39,6 +40,10 @@ const Realtimeprice = () => {
   return (
     <>
       <Layout>
+        {/* Graph Section */}
+        <div className="graph-container">
+          <Bar data={data} options={options} />
+        </div>
       <h1 className="form-title">RealTime-Price</h1>
 
         {/* Kharif Crops */}
@@ -191,10 +196,6 @@ const Realtimeprice = () => {
             </tr>
           </tbody>
         </table>
-         {/* Graph Section */}
-         <div className="graph-container">
-          <Bar data={data} options={options} />
-        </div>
       </Layout>
     </>
   );

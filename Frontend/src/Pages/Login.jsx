@@ -1,36 +1,26 @@
 import React, { useState } from 'react';
+import Layout from '../Components/Layout'
+import axios from 'axios';
 import '../pages/csspages/Login.css';
-import Layout from '../Components/Layout';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
+import { useNavigate } from 'react-router-dom'; 
 
-const Login = () => {
-  const [loginData, setLoginData] = useState({
-    email: '',
-    password: ''
-  });
-
-  const navigate = useNavigate(); // Initialize the navigate function
+const login = () => {
+  const [formData, setFormData] = useState({ email: '', password: '', role: 'farmer' });
 
   const handleChange = (e) => {
-    setLoginData({ ...loginData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Dummy authentication logic
-    const dummyUser = {
-      email: 'lakshr686@gmail.com',
-      password: '1SI22CS089'
-    };
-
-    if (loginData.email === dummyUser.email && loginData.password === dummyUser.password) {
-      // Store user data in localStorage
-      localStorage.setItem('user', JSON.stringify(loginData));
+    try {
+      const response = await axios.post('/login', formData);
+      localStorage.setItem('token', response.data.token);
       alert('Login successful');
-      navigate('/'); // Redirect to the home page
-    } else {
-      alert('Invalid email or password');
+      localStorage.setItem('role',formData.role);
+      window.location.href = '/';
+    } catch (error) {
+      alert('Invalid credentials');
     }
   };
 
@@ -43,7 +33,7 @@ const Login = () => {
         <select
           name="role"
           id="role"
-          value={loginData.role}
+          value={formData.role}
           onChange={handleChange}
           className="form-input"
         >
@@ -51,15 +41,15 @@ const Login = () => {
           <option value="buyer">Buyer</option>
         </select>
 
-        <label htmlFor="email" className="form-label">Enter your Email/PhoneNumber:</label>
+        <label htmlFor="email" className="form-label">Enter your Email / PhoneNumber:</label>
         <input
-          type="email"
+          type="text"
           name="email"
           id="email"
-          value={loginData.email}
+          value={formData.email}
           onChange={handleChange}
           className="form-input"
-          placeholder="Email @gmail.com"
+          placeholder="Email @gmail.com / XXXXXXXXXX"
           required
         />
 
@@ -68,7 +58,7 @@ const Login = () => {
           type="password"
           name="password"
           id="password"
-          value={loginData.password}
+          value={formData.password}
           onChange={handleChange}
           className="form-input"
           placeholder="Password"
@@ -78,7 +68,7 @@ const Login = () => {
         <button type="submit" className="form-button">Login</button>
       </form>
     </Layout>
-  );
-};
+  )
+}//dont change the name of function while building
 
-export default Login;
+export default login
